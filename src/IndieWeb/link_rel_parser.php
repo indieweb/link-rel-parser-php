@@ -33,7 +33,7 @@ function http_rels($h) {
           foreach ($relarray as $rel) {
             $rel = strtolower(trim($rel));
             if ($rel != '') {
-              if (!$rels[$rel]) { 
+              if (!array_key_exists($rel, $rels)) { 
                 $rels[$rel] = array(); 
               }
               if (!in_array($href, $rels[$rel])) {

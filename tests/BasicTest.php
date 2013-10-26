@@ -11,35 +11,28 @@ class BasicTest extends PHPUnit_Framework_TestCase {
 
   public function testExample() {
     $this->_testEquals(array(
-      'rels' => array(
-        'd' => array('http://example.org/query?a=b,c'),
-        'e' => array('http://example.org/query?a=b,c'),
-        'f' => array('http://example.org/'),
-      )
+      'd' => array('http://example.org/query?a=b,c'),
+      'e' => array('http://example.org/query?a=b,c'),
+      'f' => array('http://example.org/'),
     ), "Link: <http://example.org/query?a=b,c>; rel=\"d e\", <http://example.org/>; rel=f");
   }
 
   public function testMultipleAttributes() {
     $this->_testEquals(array(
-      'rels' => array(
-        'foo' => array('http://example.org/'),
-      )
+      'foo' => array('http://example.org/'),
     ), "Link: <http://example.org/>; rel=\"foo\"; title=\"Example\"");
   }
 
   public function testLinkNoRelValue() {
     $this->_testEquals(array(
-      'rels' => array(
-      )
     ), "Link: <http://example.org/>; title=\"Example\"");
   }
 
   public function testAaronParecki() {
     $this->_testEquals(array(
-      'rels' => array(
-        'http://webmention.org/' => array('http://aaronparecki.com/webmention.php'),
-        'indieauth' => array('https://indieauth.com'),
-      )
+      'http://webmention.org/' => array('http://aaronparecki.com/webmention.php'),
+      'indieauth' => array('https://indieauth.com'),
+      'pingback' => array('http://pingback.me/webmention?forward=http%3A%2F%2Faaronparecki.com%2Fwebmention.php')
     ), "HTTP/1.1 200 OK
 Server: nginx/1.0.14
 Date: Sat, 26 Oct 2013 01:40:11 GMT
@@ -52,9 +45,7 @@ Link: <http://aaronparecki.com/webmention.php>; rel=\"http://webmention.org/\"")
 
   public function testBarryFrost() {
     $this->_testEquals(array(
-      'rels' => array(
-        'webmention' => array('http://barryfrost.com/webmention'),
-      )
+      'webmention' => array('http://barryfrost.com/webmention'),
     ), "HTTP/1.1 200 OK
 Cache-Control: max-age=0, private, must-revalidate
 Content-length: 19600
