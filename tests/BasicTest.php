@@ -9,7 +9,7 @@ class BasicTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals($expected, $result);
   }
 
-  public function testInvalidStartDate() {
+  public function testExample() {
     $this->_testEquals(array(
       'rels' => array(
         'd' => array('http://example.org/query?a=b,c'),
@@ -17,6 +17,21 @@ class BasicTest extends PHPUnit_Framework_TestCase {
         'f' => array('http://example.org/'),
       )
     ), "Link: <http://example.org/query?a=b,c>; rel=\"d e\", <http://example.org/>; rel=f");
+  }
+
+  public function testMultipleAttributes() {
+    $this->_testEquals(array(
+      'rels' => array(
+        'foo' => array('http://example.org/'),
+      )
+    ), "Link: <http://example.org/>; rel=\"foo\"; title=\"Example\"");
+  }
+
+  public function testLinkNoRelValue() {
+    $this->_testEquals(array(
+      'rels' => array(
+      )
+    ), "Link: <http://example.org/>; title=\"Example\"");
   }
 
   public function testAaronParecki() {
@@ -38,7 +53,7 @@ Link: <http://aaronparecki.com/webmention.php>; rel=\"http://webmention.org/\"")
   public function testBarryFrost() {
     $this->_testEquals(array(
       'rels' => array(
-        'webmention' => array('http://aaronparecki.com/webmention.php'),
+        'webmention' => array('http://barryfrost.com/webmention'),
       )
     ), "HTTP/1.1 200 OK
 Cache-Control: max-age=0, private, must-revalidate
