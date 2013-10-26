@@ -9,7 +9,8 @@ license: http://creativecommons.org/publicdomain/zero/1.0/
 // in $h: HTTP headers as a string
 // returns: array of rel values as indices to arrays of URLs
 function http_rels($h) {
-  $h = explode("\r\n", preg_replace("/(\r\n|\r|\n)[ \t]+/", " ", $h));
+  $h = preg_replace("/(\r\n|\r)/", "\n", $h);
+  $h = explode("\n", preg_replace("/(\n)[ \t]+/", " ", $h));
   $rels = array();
   foreach ($h as $f) {
     if (!strncmp($f, 'X-Pingback: ', 12)) {
