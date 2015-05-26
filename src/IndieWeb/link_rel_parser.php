@@ -71,6 +71,7 @@ function head_http_rels($url) {
 
   $r = array();
   $r['status'] = $i['http_code'];
+  $r['type'] = $i['content_type'];
   $r['rels'] = http_rels($h);
   return $r;
 }
