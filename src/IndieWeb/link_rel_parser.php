@@ -51,7 +51,8 @@ function http_rels($h) {
 // in $url: URL to get HTTP HEAD Link (and effective/x-extended) rels 
 // returns: array of 
 //        "status"=> HTTP status code, 
-//        "rels" array with 
+//        "type"=> HTTP Content-Type
+//        "rels" array with http_rels return value
 function head_http_rels($url) {
 	$c = curl_init();
 	curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
