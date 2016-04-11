@@ -23,6 +23,12 @@ class BasicTest extends PHPUnit_Framework_TestCase {
     ), "Link: <http://example.org/>; rel=\"foo\"; title=\"Example\"");
   }
 
+  public function testUnusualCaseLinkHeader() {
+    $this->_testEquals(array(
+      'foo' => array('http://example.org/')
+    ), "LinK: <http://example.org/>; rel=\"foo\"; title=\"Example\"");
+  }
+
   public function testLinkNoRelValue() {
     $this->_testEquals(array(
     ), "Link: <http://example.org/>; title=\"Example\"");
