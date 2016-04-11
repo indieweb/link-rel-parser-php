@@ -15,7 +15,7 @@ To run the tests, run this on your command line:
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/indieweb/link_rel_parser-ruby/issues. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/indieweb/link_rel_parser-ruby/issues. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [IndieWebCamp Code of Conduct](https://indiewebcamp.com/code-of-conduct).
 
 1. Fork it
 2. Get it running
