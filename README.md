@@ -31,5 +31,4 @@ If you find bugs, have feature requests or questions, please
 
 ## Code of Conduct
 
-Everyone interacting in the link-rel-parser-php codebase, issue tracker, chat room, and mailing lists is expected to follow the
-[link-rel-parser-php code of conduct](https://github.com/indieweb/link-rel-parser-php/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the link-rel-parser-php codebase, issue tracker, chat room, and mailing lists is expected to follow the [link-rel-parser-php code of conduct](https://indiewebcamp.com/code-of-conduct).
