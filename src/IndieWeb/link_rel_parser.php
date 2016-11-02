@@ -4,6 +4,7 @@ namespace IndieWeb;
 /* 
 http_rels, head_http_rels by Tantek Çelik http://tantek.com/
 license: http://creativecommons.org/publicdomain/zero/1.0/
+depends on: get_absolute_uri in https://github.com/tantek/cassis/cassis.js
 */
 
 /**
