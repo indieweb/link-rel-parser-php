@@ -4,7 +4,7 @@
 /* 
 first_linknode_href, get_rel_webmention by Tantek Çelik http://tantek.com/
 license: http://creativecommons.org/publicdomain/zero/1.0/
-depends on: link_rel_parser.php (e.g. head_http_rels, 
+depends on: link_rel_parser.php (e.g. head_http_rels)
 depends on: https://github.com/tantek/cassis/cassis.js (e.g. contains, get_absolute_uri, is_html_type, xphasrel, strcat)
 */
 
