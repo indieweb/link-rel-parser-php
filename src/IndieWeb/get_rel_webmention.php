@@ -4,25 +4,45 @@
 /* 
 first_linknode_href, get_rel_webmention by Tantek Çelik http://tantek.com/
 license: http://creativecommons.org/publicdomain/zero/1.0/
+depends on: link_rel_parser.php (e.g. head_http_rels, 
+depends on: https://github.com/tantek/cassis/cassis.js (e.g. contains, get_absolute_uri, is_html_type, xphasrel, strcat)
 */
+
+// Could move this function to cassis.js if more broadly useful
+function is_loopback($href) {
+// in: $href URL
+// out: boolean whether host of URL is a loopback address
+  $host = hostname_of_uri($href);
+  $host = explode('.', $host);
+  return ($host.length == 4 &&
+          $host[0] == 127 &&
+          ctype_digit($host[1]) &&
+          ctype_digit($host[2]) &&
+          ctype_digit($host[3]));
+}
 
 function first_linknode_href($links, $spacedtagnames='a area link') {
 // in: DOMNodeList $links
 //     $spacedtagnames - space separated tag names, null for any
 // out: href attribute as string
-// return first DOMNode in $links that is an a, area, link with href
+// return href of first DOMNode in $links that is an a, area, link
+//      with href that is not a loopback address
 // else return null
   if ($spacedtagnames) {
     $spacedtagnames = strcat(' ', $spacedtagnames, ' ');
   }
-	foreach ($links as $link) {
-			if (!$spacedtagnames ||
-			    contains($spacedtagnames, 
-			             strcat(' ', $link->nodeName, ' '))) {
-			  return $link->getAttribute('href');
-			}
-	}
-	return null;
+  foreach ($links as $link) {
+    if (!$spacedtagnames ||
+        contains($spacedtagnames, 
+                 strcat(' ', $link->nodeName, ' '))) {
+      $href = $link->getAttribute('href');
+      if (!is_loopback($href))
+      {
+        return $href;
+      }
+    }
+  }
+  return null;
 }
 
 // in: $url of page that may or may not have a webmention endpoint
