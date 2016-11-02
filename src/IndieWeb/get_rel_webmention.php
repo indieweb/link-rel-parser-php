@@ -13,6 +13,7 @@ function is_loopback($href) {
 // in: $href URL
 // out: boolean whether host of URL is a loopback address
   $host = hostname_of_uri($href);
+  if ($host == 'localhost') { return true; }
   $host = explode('.', $host);
   return ($host.length == 4 &&
           $host[0] == 127 &&
