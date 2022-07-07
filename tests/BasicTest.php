@@ -1,9 +1,8 @@
 <?php
-class BasicTest extends PHPUnit_Framework_TestCase {
 
-  public function setUp() {
-  }
+use PHPUnit\Framework\TestCase;
 
+class BasicTest extends TestCase {
   private function _testEquals($expected, $headers) {
     $result = IndieWeb\http_rels($headers);
     $this->assertEquals($expected, $result);
